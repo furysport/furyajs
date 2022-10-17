@@ -21,7 +21,7 @@ npm install teritori
     - [Composing Messages](#composing-messages)
         - Teritori
             - [Airdrop](#airdrop-messages)
-        - Cosmos, CosmWasm, and IBC
+        - Cosmos and IBC
             - [IBC](#ibc-messages)
             - [Cosmos](#cosmos-messages)
 - [Wallets and Signers](#connecting-with-wallets-and-signing-messages)
@@ -210,8 +210,6 @@ import { AminoTypes, SigningStargateClient } from "@cosmjs/stargate";
 import { 
     cosmosAminoConverters,
     cosmosProtoRegistry,
-    cosmwasmAminoConverters,
-    cosmwasmProtoRegistry,
     ibcProtoRegistry,
     ibcAminoConverters,
     teritoriAminoConverters,
@@ -223,14 +221,12 @@ const rpcEndpint = 'https://rpc.cosmos.directory/teritori'; // or another URL
 
 const protoRegistry: ReadonlyArray<[string, GeneratedType]> = [
     ...cosmosProtoRegistry,
-    ...cosmwasmProtoRegistry,
     ...ibcProtoRegistry,
     ...teritoriProtoRegistry
 ];
 
 const aminoConverters = {
     ...cosmosAminoConverters,
-    ...cosmwasmAminoConverters,
     ...ibcAminoConverters,
     ...teritoriAminoConverters
 };
