@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "declaration": true,
+        "declarationDir": "./types",
+        "emitDeclarationOnly": true,
+        "esModuleInterop": true,
+        "isolatedModules": true,
+        "allowJs": true,
+        "lib": [
+            "es2015"
+        ]
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
