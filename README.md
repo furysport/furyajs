@@ -47,8 +47,17 @@ const balance = await client.cosmos.bank.v1beta1
     .allBalances({ address: 'tori1addresshere' });
 
 // you can also query the teritori modules
-const balances = await client.teritori.exchange.v1beta1
-    .exchangeBalances()
+const drops = await client.teritori.airdrop.v1beta1.allocation({
+    address: userAddress
+});
+
+// now we can get all the info!
+const {
+    address,
+    amount,
+    chain,
+    claimedAmount
+} = drops.allocation;
 ```
 
 ### Composing Messages
