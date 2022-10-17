@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "teritori",
   "author": "Dan Lynch <pyramation@gmail.com>",
-  "homepage": "https://github.com/cosmology_tech/teritori#readme",
+  "homepage": "https://github.com/cosmology-tech/teritori#readme",
   "license": "SEE LICENSE IN LICENSE",
   "main": "main/index.js",
   "module": "module/index.js",
@@ -38,11 +38,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/cosmology_tech/teritori"
+    "url": "https://github.com/cosmology-tech/teritori"
   },
   "keywords": [],
   "bugs": {
-    "url": "https://github.com/cosmology_tech/teritori/issues"
+    "url": "https://github.com/cosmology-tech/teritori/issues"
   },
   "devDependencies": {
     "@babel/cli": "7.19.3",
