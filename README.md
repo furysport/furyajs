@@ -1,8 +1,8 @@
 # furya
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/545047/196277993-8d2edf5f-0f69-4679-97f4-8ad243448df7.svg" width="80"><br />
-    Connecting Tribes on Cosmos SDK & GNØ Land 
+  <img src="https://raw.githubusercontent.com/furysport/fury-swap-ui/mainv2/public/logo.svg" width="80"><br />
+    Redefining the foundational infrastructure for an inter-connected Sports and Gaming DeFi Hub
 </p>
 
 
