@@ -2,7 +2,7 @@
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/furysport/fury-swap-ui/mainv2/public/logo.svg" width="200"><br />
-    Redefining the foundational infrastructure for an inter-connected Sports and Gaming DeFi Hub
+    Foundational Infrastructure for an Inter-Connected Sports and Gaming DeFi Hub
 </p>
 
 
