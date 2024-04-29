@@ -178,7 +178,7 @@ const { send } = cosmos.bank.v1beta1.MessageComposer.withTypeUrl;
 const msg = send({
     amount: [
     {
-        denom: 'utori',
+        denom: 'ufury',
         amount: '1000'
     }
     ],
@@ -189,7 +189,7 @@ const msg = send({
 const fee: StdFee = {
     amount: [
     {
-        denom: 'utori',
+        denom: 'ufury',
         amount: '864'
     }
     ],
