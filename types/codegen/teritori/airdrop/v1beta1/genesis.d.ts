@@ -3,12 +3,12 @@ import { AirdropAllocation, AirdropAllocationSDKType } from "./allocation";
 import * as _m0 from "protobufjs/minimal";
 /** GenesisState defines the module's genesis state. */
 export interface GenesisState {
-    params?: Params;
+    params: Params;
     allocations: AirdropAllocation[];
 }
 /** GenesisState defines the module's genesis state. */
 export interface GenesisStateSDKType {
-    params?: ParamsSDKType;
+    params: ParamsSDKType;
     allocations: AirdropAllocationSDKType[];
 }
 export declare const GenesisState: {

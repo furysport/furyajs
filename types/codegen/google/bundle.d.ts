@@ -63,17 +63,17 @@ export declare namespace google {
         methodOptions_IdempotencyLevelFromJSON(object: any): _83.MethodOptions_IdempotencyLevel;
         methodOptions_IdempotencyLevelToJSON(object: _83.MethodOptions_IdempotencyLevel): string;
         FieldDescriptorProto_Type: typeof _83.FieldDescriptorProto_Type;
-        FieldDescriptorProto_TypeSDKType: typeof _83.FieldDescriptorProto_TypeSDKType;
+        FieldDescriptorProto_TypeSDKType: typeof _83.FieldDescriptorProto_Type;
         FieldDescriptorProto_Label: typeof _83.FieldDescriptorProto_Label;
-        FieldDescriptorProto_LabelSDKType: typeof _83.FieldDescriptorProto_LabelSDKType;
+        FieldDescriptorProto_LabelSDKType: typeof _83.FieldDescriptorProto_Label;
         FileOptions_OptimizeMode: typeof _83.FileOptions_OptimizeMode;
-        FileOptions_OptimizeModeSDKType: typeof _83.FileOptions_OptimizeModeSDKType;
+        FileOptions_OptimizeModeSDKType: typeof _83.FileOptions_OptimizeMode;
         FieldOptions_CType: typeof _83.FieldOptions_CType;
-        FieldOptions_CTypeSDKType: typeof _83.FieldOptions_CTypeSDKType;
+        FieldOptions_CTypeSDKType: typeof _83.FieldOptions_CType;
         FieldOptions_JSType: typeof _83.FieldOptions_JSType;
-        FieldOptions_JSTypeSDKType: typeof _83.FieldOptions_JSTypeSDKType;
+        FieldOptions_JSTypeSDKType: typeof _83.FieldOptions_JSType;
         MethodOptions_IdempotencyLevel: typeof _83.MethodOptions_IdempotencyLevel;
-        MethodOptions_IdempotencyLevelSDKType: typeof _83.MethodOptions_IdempotencyLevelSDKType;
+        MethodOptions_IdempotencyLevelSDKType: typeof _83.MethodOptions_IdempotencyLevel;
         FileDescriptorSet: {
             encode(message: _83.FileDescriptorSet, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _83.FileDescriptorSet;

@@ -1,11 +1,13 @@
-import { OfflineSigner, GeneratedType, Registry } from "@cosmjs/proto-signing";
+import { GeneratedType, Registry, OfflineSigner } from "@cosmjs/proto-signing";
 import { defaultRegistryTypes, AminoTypes, SigningStargateClient } from "@cosmjs/stargate";
-import * as teritoriAirdropV1beta1TxRegistry from "./airdrop/v1beta1/tx.registry";
-import * as teritoriAirdropV1beta1TxAmino from "./airdrop/v1beta1/tx.amino";
-export const teritoriAminoConverters = { ...teritoriAirdropV1beta1TxAmino.AminoConverter
+import { HttpEndpoint } from "@cosmjs/tendermint-rpc";
+import * as furyaAirdropV1beta1TxRegistry from "./airdrop/v1beta1/tx.registry";
+import * as furyaAirdropV1beta1TxAmino from "./airdrop/v1beta1/tx.amino";
+export const furyaAminoConverters = {
+  ...furyaAirdropV1beta1TxAmino.AminoConverter
 };
-export const teritoriProtoRegistry: ReadonlyArray<[string, GeneratedType]> = [...teritoriAirdropV1beta1TxRegistry.registry];
-export const getSigningTeritoriClientOptions = ({
+export const furyaProtoRegistry: ReadonlyArray<[string, GeneratedType]> = [...furyaAirdropV1beta1TxRegistry.registry];
+export const getSigningFuryaClientOptions = ({
   defaultTypes = defaultRegistryTypes
 }: {
   defaultTypes?: ReadonlyArray<[string, GeneratedType]>;
@@ -13,31 +15,32 @@ export const getSigningTeritoriClientOptions = ({
   registry: Registry;
   aminoTypes: AminoTypes;
 } => {
-  const registry = new Registry([...defaultTypes, ...teritoriProtoRegistry]);
-  const aminoTypes = new AminoTypes({ ...teritoriAminoConverters
+  const registry = new Registry([...defaultTypes, ...furyaProtoRegistry]);
+  const aminoTypes = new AminoTypes({
+    ...furyaAminoConverters
   });
   return {
     registry,
     aminoTypes
   };
 };
-export const getSigningTeritoriClient = async ({
+export const getSigningFuryaClient = async ({
   rpcEndpoint,
   signer,
   defaultTypes = defaultRegistryTypes
 }: {
-  rpcEndpoint: string;
+  rpcEndpoint: string | HttpEndpoint;
   signer: OfflineSigner;
   defaultTypes?: ReadonlyArray<[string, GeneratedType]>;
 }) => {
   const {
     registry,
     aminoTypes
-  } = getSigningTeritoriClientOptions({
+  } = getSigningFuryaClientOptions({
     defaultTypes
   });
   const client = await SigningStargateClient.connectWithSigner(rpcEndpoint, signer, {
-    registry,
+    registry: (registry as any),
     aminoTypes
   });
   return client;

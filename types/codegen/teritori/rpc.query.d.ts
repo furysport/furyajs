@@ -1,5 +1,6 @@
+import { HttpEndpoint } from "@cosmjs/tendermint-rpc";
 export declare const createRPCQueryClient: ({ rpcEndpoint }: {
-    rpcEndpoint: string;
+    rpcEndpoint: string | HttpEndpoint;
 }) => Promise<{
     cosmos: {
         app: {
@@ -148,7 +149,7 @@ export declare const createRPCQueryClient: ({ rpcEndpoint }: {
             };
         };
     };
-    teritori: {
+    furya: {
         airdrop: {
             v1beta1: {
                 allocation(request: import("./airdrop/v1beta1/query").QueryAllocationRequest): Promise<import("./airdrop/v1beta1/query").QueryAllocationResponse>;

@@ -44,7 +44,8 @@ import * as _203 from "./rpc.tx";
 export namespace ibc {
   export namespace applications {
     export namespace transfer {
-      export const v1 = { ..._87,
+      export const v1 = {
+        ..._87,
         ..._88,
         ..._89,
         ..._90,
@@ -53,13 +54,15 @@ export namespace ibc {
         ..._186,
         ..._191
       };
-      export const v2 = { ..._91
+      export const v2 = {
+        ..._91
       };
     }
   }
   export namespace core {
     export namespace channel {
-      export const v1 = { ..._92,
+      export const v1 = {
+        ..._92,
         ..._93,
         ..._94,
         ..._95,
@@ -70,7 +73,8 @@ export namespace ibc {
       };
     }
     export namespace client {
-      export const v1 = { ..._96,
+      export const v1 = {
+        ..._96,
         ..._97,
         ..._98,
         ..._99,
@@ -81,11 +85,13 @@ export namespace ibc {
       };
     }
     export namespace commitment {
-      export const v1 = { ..._100
+      export const v1 = {
+        ..._100
       };
     }
     export namespace connection {
-      export const v1 = { ..._101,
+      export const v1 = {
+        ..._101,
         ..._102,
         ..._103,
         ..._104,
@@ -96,32 +102,39 @@ export namespace ibc {
       };
     }
     export namespace port {
-      export const v1 = { ..._105,
+      export const v1 = {
+        ..._105,
         ..._190
       };
     }
     export namespace types {
-      export const v1 = { ..._106
+      export const v1 = {
+        ..._106
       };
     }
   }
   export namespace lightclients {
     export namespace localhost {
-      export const v1 = { ..._107
+      export const v1 = {
+        ..._107
       };
     }
     export namespace solomachine {
-      export const v1 = { ..._108
+      export const v1 = {
+        ..._108
       };
-      export const v2 = { ..._109
+      export const v2 = {
+        ..._109
       };
     }
     export namespace tendermint {
-      export const v1 = { ..._110
+      export const v1 = {
+        ..._110
       };
     }
   }
-  export const ClientFactory = { ..._202,
+  export const ClientFactory = {
+    ..._202,
     ..._203
   };
 }

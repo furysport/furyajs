@@ -9,7 +9,7 @@ import * as _129 from "./mint/v1beta1/query";
 import * as _197 from "./airdrop/v1beta1/query.rpc.Query";
 import * as _198 from "./mint/v1beta1/query.rpc.Query";
 import * as _199 from "./airdrop/v1beta1/tx.rpc.msg";
-export declare namespace teritori {
+export declare namespace furya {
     namespace airdrop {
         const v1beta1: {
             MsgClientImpl: typeof _199.MsgClientImpl;
@@ -113,7 +113,7 @@ export declare namespace teritori {
                 };
             };
             AminoConverter: {
-                "/teritori.airdrop.v1beta1.MsgClaimAllocation": {
+                "/furya.airdrop.v1beta1.MsgClaimAllocation": {
                     aminoType: string;
                     toAmino: ({ address, pubKey, rewardAddress, signature }: _126.MsgClaimAllocation) => {
                         address: string;
@@ -128,7 +128,7 @@ export declare namespace teritori {
                         signature: string;
                     }) => _126.MsgClaimAllocation;
                 };
-                "/teritori.airdrop.v1beta1.MsgSetAllocation": {
+                "/furya.airdrop.v1beta1.MsgSetAllocation": {
                     aminoType: string;
                     toAmino: ({ sender, allocation }: _126.MsgSetAllocation) => {
                         sender: string;
@@ -149,7 +149,7 @@ export declare namespace teritori {
                         };
                     }) => _126.MsgSetAllocation;
                 };
-                "/teritori.airdrop.v1beta1.MsgTransferModuleOwnership": {
+                "/furya.airdrop.v1beta1.MsgTransferModuleOwnership": {
                     aminoType: string;
                     toAmino: ({ sender, newOwner }: _126.MsgTransferModuleOwnership) => {
                         sender: string;
@@ -160,7 +160,7 @@ export declare namespace teritori {
                         new_owner: string;
                     }) => _126.MsgTransferModuleOwnership;
                 };
-                "/teritori.airdrop.v1beta1.MsgDepositTokens": {
+                "/furya.airdrop.v1beta1.MsgDepositTokens": {
                     aminoType: string;
                     toAmino: ({ sender, amount }: _126.MsgDepositTokens) => {
                         sender: string;
@@ -402,14 +402,14 @@ export declare namespace teritori {
                     v1beta1: import("../cosmos/vesting/v1beta1/tx.rpc.msg").MsgClientImpl;
                 };
             };
-            teritori: {
+            furya: {
                 airdrop: {
                     v1beta1: _199.MsgClientImpl;
                 };
             };
         }>;
         createRPCQueryClient: ({ rpcEndpoint }: {
-            rpcEndpoint: string;
+            rpcEndpoint: string | import("@cosmjs/tendermint-rpc").HttpEndpoint;
         }) => Promise<{
             cosmos: {
                 app: {
@@ -558,7 +558,7 @@ export declare namespace teritori {
                     };
                 };
             };
-            teritori: {
+            furya: {
                 airdrop: {
                     v1beta1: {
                         allocation(request: _125.QueryAllocationRequest): Promise<_125.QueryAllocationResponse>;

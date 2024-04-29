@@ -6,24 +6,23 @@ export interface QueryAllocationRequest {
     address: string;
 }
 export interface QueryAllocationRequestSDKType {
-    /** address is the address to query allocation for. */
     address: string;
 }
 export interface QueryAllocationResponse {
-    allocation?: AirdropAllocation;
+    allocation: AirdropAllocation;
 }
 export interface QueryAllocationResponseSDKType {
-    allocation?: AirdropAllocationSDKType;
+    allocation: AirdropAllocationSDKType;
 }
 export interface QueryParamsRequest {
 }
 export interface QueryParamsRequestSDKType {
 }
 export interface QueryParamsResponse {
-    params?: Params;
+    params: Params;
 }
 export interface QueryParamsResponseSDKType {
-    params?: ParamsSDKType;
+    params: ParamsSDKType;
 }
 export declare const QueryAllocationRequest: {
     encode(message: QueryAllocationRequest, writer?: _m0.Writer): _m0.Writer;

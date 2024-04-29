@@ -9,7 +9,7 @@ export interface MsgSoftwareUpgrade {
     /** authority is the address of the governance account. */
     authority: string;
     /** plan is the upgrade plan. */
-    plan?: Plan;
+    plan: Plan;
 }
 /**
  * MsgSoftwareUpgrade is the Msg/SoftwareUpgrade request type.
@@ -17,10 +17,8 @@ export interface MsgSoftwareUpgrade {
  * Since: cosmos-sdk 0.46
  */
 export interface MsgSoftwareUpgradeSDKType {
-    /** authority is the address of the governance account. */
     authority: string;
-    /** plan is the upgrade plan. */
-    plan?: PlanSDKType;
+    plan: PlanSDKType;
 }
 /**
  * MsgSoftwareUpgradeResponse is the Msg/SoftwareUpgrade response type.
@@ -51,7 +49,6 @@ export interface MsgCancelUpgrade {
  * Since: cosmos-sdk 0.46
  */
 export interface MsgCancelUpgradeSDKType {
-    /** authority is the address of the governance account. */
     authority: string;
 }
 /**

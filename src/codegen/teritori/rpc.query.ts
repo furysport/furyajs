@@ -1,9 +1,9 @@
-import { Tendermint34Client } from "@cosmjs/tendermint-rpc";
+import { Tendermint34Client, HttpEndpoint } from "@cosmjs/tendermint-rpc";
 import { QueryClient } from "@cosmjs/stargate";
 export const createRPCQueryClient = async ({
   rpcEndpoint
 }: {
-  rpcEndpoint: string;
+  rpcEndpoint: string | HttpEndpoint;
 }) => {
   const tmClient = await Tendermint34Client.connect(rpcEndpoint);
   const client = new QueryClient(tmClient);
@@ -55,7 +55,7 @@ export const createRPCQueryClient = async ({
         v1beta1: (await import("../cosmos/upgrade/v1beta1/query.rpc.Query")).createRpcQueryExtension(client)
       }
     },
-    teritori: {
+    furya: {
       airdrop: {
         v1beta1: (await import("./airdrop/v1beta1/query.rpc.Query")).createRpcQueryExtension(client)
       },

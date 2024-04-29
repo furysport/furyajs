@@ -1,7 +1,6 @@
 import * as _m0 from "protobufjs/minimal";
 import { isSet } from "../../../helpers";
 /** AirdropAllocation defines the user's airdrop allocation. */
-
 export interface AirdropAllocation {
   chain: string;
   address: string;
@@ -9,14 +8,12 @@ export interface AirdropAllocation {
   claimedAmount: string;
 }
 /** AirdropAllocation defines the user's airdrop allocation. */
-
 export interface AirdropAllocationSDKType {
   chain: string;
   address: string;
   amount: string;
   claimed_amount: string;
 }
-
 function createBaseAirdropAllocation(): AirdropAllocation {
   return {
     chain: "",
@@ -25,62 +22,48 @@ function createBaseAirdropAllocation(): AirdropAllocation {
     claimedAmount: ""
   };
 }
-
 export const AirdropAllocation = {
   encode(message: AirdropAllocation, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.chain !== "") {
       writer.uint32(10).string(message.chain);
     }
-
     if (message.address !== "") {
       writer.uint32(18).string(message.address);
     }
-
     if (message.amount !== "") {
       writer.uint32(26).string(message.amount);
     }
-
     if (message.claimedAmount !== "") {
       writer.uint32(34).string(message.claimedAmount);
     }
-
     return writer;
   },
-
   decode(input: _m0.Reader | Uint8Array, length?: number): AirdropAllocation {
     const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseAirdropAllocation();
-
     while (reader.pos < end) {
       const tag = reader.uint32();
-
       switch (tag >>> 3) {
         case 1:
           message.chain = reader.string();
           break;
-
         case 2:
           message.address = reader.string();
           break;
-
         case 3:
           message.amount = reader.string();
           break;
-
         case 4:
           message.claimedAmount = reader.string();
           break;
-
         default:
           reader.skipType(tag & 7);
           break;
       }
     }
-
     return message;
   },
-
   fromJSON(object: any): AirdropAllocation {
     return {
       chain: isSet(object.chain) ? String(object.chain) : "",
@@ -89,7 +72,6 @@ export const AirdropAllocation = {
       claimedAmount: isSet(object.claimedAmount) ? String(object.claimedAmount) : ""
     };
   },
-
   toJSON(message: AirdropAllocation): unknown {
     const obj: any = {};
     message.chain !== undefined && (obj.chain = message.chain);
@@ -98,7 +80,6 @@ export const AirdropAllocation = {
     message.claimedAmount !== undefined && (obj.claimedAmount = message.claimedAmount);
     return obj;
   },
-
   fromPartial(object: Partial<AirdropAllocation>): AirdropAllocation {
     const message = createBaseAirdropAllocation();
     message.chain = object.chain ?? "";
@@ -107,5 +88,4 @@ export const AirdropAllocation = {
     message.claimedAmount = object.claimedAmount ?? "";
     return message;
   }
-
 };

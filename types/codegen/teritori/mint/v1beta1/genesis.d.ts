@@ -1,26 +1,22 @@
 import { Minter, MinterSDKType, Params, ParamsSDKType, TeamVestingMonthInfo, TeamVestingMonthInfoSDKType } from "./mint";
-import * as _m0 from "protobufjs/minimal";
 import { Long } from "../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /** GenesisState defines the mint module's genesis state. */
 export interface GenesisState {
     /** minter is a space for holding current rewards information. */
-    minter?: Minter;
+    minter: Minter;
     /** params defines all the paramaters of the module. */
-    params?: Params;
+    params: Params;
     /** required values for team rewards */
-    monthInfo?: TeamVestingMonthInfo;
+    monthInfo: TeamVestingMonthInfo;
     /** current reduction period start block */
     reductionStartedBlock: Long;
 }
 /** GenesisState defines the mint module's genesis state. */
 export interface GenesisStateSDKType {
-    /** minter is a space for holding current rewards information. */
-    minter?: MinterSDKType;
-    /** params defines all the paramaters of the module. */
-    params?: ParamsSDKType;
-    /** required values for team rewards */
-    month_info?: TeamVestingMonthInfoSDKType;
-    /** current reduction period start block */
+    minter: MinterSDKType;
+    params: ParamsSDKType;
+    month_info: TeamVestingMonthInfoSDKType;
     reduction_started_block: Long;
 }
 export declare const GenesisState: {

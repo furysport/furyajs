@@ -1049,9 +1049,9 @@ export declare namespace ibc {
                 orderFromJSON(object: any): _92.Order;
                 orderToJSON(object: _92.Order): string;
                 State: typeof _92.State;
-                StateSDKType: typeof _92.StateSDKType;
+                StateSDKType: typeof _92.State;
                 Order: typeof _92.Order;
-                OrderSDKType: typeof _92.OrderSDKType;
+                OrderSDKType: typeof _92.Order;
                 Channel: {
                     encode(message: _92.Channel, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
                     decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _92.Channel;
@@ -1959,7 +1959,7 @@ export declare namespace ibc {
                 stateFromJSON(object: any): _101.State;
                 stateToJSON(object: _101.State): string;
                 State: typeof _101.State;
-                StateSDKType: typeof _101.StateSDKType;
+                StateSDKType: typeof _101.State;
                 ConnectionEnd: {
                     encode(message: _101.ConnectionEnd, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
                     decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _101.ConnectionEnd;
@@ -2062,7 +2062,7 @@ export declare namespace ibc {
                 dataTypeFromJSON(object: any): _108.DataType;
                 dataTypeToJSON(object: _108.DataType): string;
                 DataType: typeof _108.DataType;
-                DataTypeSDKType: typeof _108.DataTypeSDKType;
+                DataTypeSDKType: typeof _108.DataType;
                 ClientState: {
                     encode(message: _108.ClientState, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
                     decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _108.ClientState;
@@ -2180,7 +2180,7 @@ export declare namespace ibc {
                 dataTypeFromJSON(object: any): _109.DataType;
                 dataTypeToJSON(object: _109.DataType): string;
                 DataType: typeof _109.DataType;
-                DataTypeSDKType: typeof _109.DataTypeSDKType;
+                DataTypeSDKType: typeof _109.DataType;
                 ClientState: {
                     encode(message: _109.ClientState, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
                     decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _109.ClientState;
@@ -2392,7 +2392,7 @@ export declare namespace ibc {
             };
         }>;
         createRPCQueryClient: ({ rpcEndpoint }: {
-            rpcEndpoint: string;
+            rpcEndpoint: string | import("@cosmjs/tendermint-rpc").HttpEndpoint;
         }) => Promise<{
             cosmos: {
                 app: {

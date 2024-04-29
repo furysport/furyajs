@@ -1,8 +1,8 @@
 import { Any, AnySDKType } from "../../../../google/protobuf/any";
 import { ConnectionEnd, ConnectionEndSDKType } from "../../../core/connection/v1/connection";
 import { Channel, ChannelSDKType } from "../../../core/channel/v1/channel";
-import * as _m0 from "protobufjs/minimal";
 import { Long } from "../../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /**
  * DataType defines the type of solo machine proof being created. This is done
  * to preserve uniqueness of different data sign byte encodings.
@@ -30,33 +30,7 @@ export declare enum DataType {
     DATA_TYPE_HEADER = 9,
     UNRECOGNIZED = -1
 }
-/**
- * DataType defines the type of solo machine proof being created. This is done
- * to preserve uniqueness of different data sign byte encodings.
- */
-export declare enum DataTypeSDKType {
-    /** DATA_TYPE_UNINITIALIZED_UNSPECIFIED - Default State */
-    DATA_TYPE_UNINITIALIZED_UNSPECIFIED = 0,
-    /** DATA_TYPE_CLIENT_STATE - Data type for client state verification */
-    DATA_TYPE_CLIENT_STATE = 1,
-    /** DATA_TYPE_CONSENSUS_STATE - Data type for consensus state verification */
-    DATA_TYPE_CONSENSUS_STATE = 2,
-    /** DATA_TYPE_CONNECTION_STATE - Data type for connection state verification */
-    DATA_TYPE_CONNECTION_STATE = 3,
-    /** DATA_TYPE_CHANNEL_STATE - Data type for channel state verification */
-    DATA_TYPE_CHANNEL_STATE = 4,
-    /** DATA_TYPE_PACKET_COMMITMENT - Data type for packet commitment verification */
-    DATA_TYPE_PACKET_COMMITMENT = 5,
-    /** DATA_TYPE_PACKET_ACKNOWLEDGEMENT - Data type for packet acknowledgement verification */
-    DATA_TYPE_PACKET_ACKNOWLEDGEMENT = 6,
-    /** DATA_TYPE_PACKET_RECEIPT_ABSENCE - Data type for packet receipt absence verification */
-    DATA_TYPE_PACKET_RECEIPT_ABSENCE = 7,
-    /** DATA_TYPE_NEXT_SEQUENCE_RECV - Data type for next sequence recv verification */
-    DATA_TYPE_NEXT_SEQUENCE_RECV = 8,
-    /** DATA_TYPE_HEADER - Data type for header verification */
-    DATA_TYPE_HEADER = 9,
-    UNRECOGNIZED = -1
-}
+export declare const DataTypeSDKType: typeof DataType;
 export declare function dataTypeFromJSON(object: any): DataType;
 export declare function dataTypeToJSON(object: DataType): string;
 /**
@@ -68,7 +42,7 @@ export interface ClientState {
     sequence: Long;
     /** frozen sequence of the solo machine */
     frozenSequence: Long;
-    consensusState?: ConsensusState;
+    consensusState: ConsensusState;
     /**
      * when set to true, will allow governance to update a solo machine client.
      * The client will be unfrozen if it is frozen.
@@ -80,15 +54,9 @@ export interface ClientState {
  * state and if the client is frozen.
  */
 export interface ClientStateSDKType {
-    /** latest sequence of the client state */
     sequence: Long;
-    /** frozen sequence of the solo machine */
     frozen_sequence: Long;
-    consensus_state?: ConsensusStateSDKType;
-    /**
-     * when set to true, will allow governance to update a solo machine client.
-     * The client will be unfrozen if it is frozen.
-     */
+    consensus_state: ConsensusStateSDKType;
     allow_update_after_proposal: boolean;
 }
 /**
@@ -98,7 +66,7 @@ export interface ClientStateSDKType {
  */
 export interface ConsensusState {
     /** public key of the solo machine */
-    publicKey?: Any;
+    publicKey: Any;
     /**
      * diversifier allows the same public key to be re-used across different solo
      * machine clients (potentially on different chains) without being considered
@@ -113,13 +81,7 @@ export interface ConsensusState {
  * consensus state.
  */
 export interface ConsensusStateSDKType {
-    /** public key of the solo machine */
-    public_key?: AnySDKType;
-    /**
-     * diversifier allows the same public key to be re-used across different solo
-     * machine clients (potentially on different chains) without being considered
-     * misbehaviour.
-     */
+    public_key: AnySDKType;
     diversifier: string;
     timestamp: Long;
 }
@@ -129,16 +91,15 @@ export interface Header {
     sequence: Long;
     timestamp: Long;
     signature: Uint8Array;
-    newPublicKey?: Any;
+    newPublicKey: Any;
     newDiversifier: string;
 }
 /** Header defines a solo machine consensus header */
 export interface HeaderSDKType {
-    /** sequence to update solo machine public key at */
     sequence: Long;
     timestamp: Long;
     signature: Uint8Array;
-    new_public_key?: AnySDKType;
+    new_public_key: AnySDKType;
     new_diversifier: string;
 }
 /**
@@ -148,8 +109,8 @@ export interface HeaderSDKType {
 export interface Misbehaviour {
     clientId: string;
     sequence: Long;
-    signatureOne?: SignatureAndData;
-    signatureTwo?: SignatureAndData;
+    signatureOne: SignatureAndData;
+    signatureTwo: SignatureAndData;
 }
 /**
  * Misbehaviour defines misbehaviour for a solo machine which consists
@@ -158,8 +119,8 @@ export interface Misbehaviour {
 export interface MisbehaviourSDKType {
     client_id: string;
     sequence: Long;
-    signature_one?: SignatureAndDataSDKType;
-    signature_two?: SignatureAndDataSDKType;
+    signature_one: SignatureAndDataSDKType;
+    signature_two: SignatureAndDataSDKType;
 }
 /**
  * SignatureAndData contains a signature and the data signed over to create that
@@ -177,7 +138,7 @@ export interface SignatureAndData {
  */
 export interface SignatureAndDataSDKType {
     signature: Uint8Array;
-    data_type: DataTypeSDKType;
+    data_type: DataType;
     data: Uint8Array;
     timestamp: Long;
 }
@@ -212,34 +173,30 @@ export interface SignBytesSDKType {
     sequence: Long;
     timestamp: Long;
     diversifier: string;
-    /** type of the data used */
-    data_type: DataTypeSDKType;
-    /** marshaled data */
+    data_type: DataType;
     data: Uint8Array;
 }
 /** HeaderData returns the SignBytes data for update verification. */
 export interface HeaderData {
     /** header public key */
-    newPubKey?: Any;
+    newPubKey: Any;
     /** header diversifier */
     newDiversifier: string;
 }
 /** HeaderData returns the SignBytes data for update verification. */
 export interface HeaderDataSDKType {
-    /** header public key */
-    new_pub_key?: AnySDKType;
-    /** header diversifier */
+    new_pub_key: AnySDKType;
     new_diversifier: string;
 }
 /** ClientStateData returns the SignBytes data for client state verification. */
 export interface ClientStateData {
     path: Uint8Array;
-    clientState?: Any;
+    clientState: Any;
 }
 /** ClientStateData returns the SignBytes data for client state verification. */
 export interface ClientStateDataSDKType {
     path: Uint8Array;
-    client_state?: AnySDKType;
+    client_state: AnySDKType;
 }
 /**
  * ConsensusStateData returns the SignBytes data for consensus state
@@ -247,7 +204,7 @@ export interface ClientStateDataSDKType {
  */
 export interface ConsensusStateData {
     path: Uint8Array;
-    consensusState?: Any;
+    consensusState: Any;
 }
 /**
  * ConsensusStateData returns the SignBytes data for consensus state
@@ -255,7 +212,7 @@ export interface ConsensusStateData {
  */
 export interface ConsensusStateDataSDKType {
     path: Uint8Array;
-    consensus_state?: AnySDKType;
+    consensus_state: AnySDKType;
 }
 /**
  * ConnectionStateData returns the SignBytes data for connection state
@@ -263,7 +220,7 @@ export interface ConsensusStateDataSDKType {
  */
 export interface ConnectionStateData {
     path: Uint8Array;
-    connection?: ConnectionEnd;
+    connection: ConnectionEnd;
 }
 /**
  * ConnectionStateData returns the SignBytes data for connection state
@@ -271,7 +228,7 @@ export interface ConnectionStateData {
  */
 export interface ConnectionStateDataSDKType {
     path: Uint8Array;
-    connection?: ConnectionEndSDKType;
+    connection: ConnectionEndSDKType;
 }
 /**
  * ChannelStateData returns the SignBytes data for channel state
@@ -279,7 +236,7 @@ export interface ConnectionStateDataSDKType {
  */
 export interface ChannelStateData {
     path: Uint8Array;
-    channel?: Channel;
+    channel: Channel;
 }
 /**
  * ChannelStateData returns the SignBytes data for channel state
@@ -287,7 +244,7 @@ export interface ChannelStateData {
  */
 export interface ChannelStateDataSDKType {
     path: Uint8Array;
-    channel?: ChannelSDKType;
+    channel: ChannelSDKType;
 }
 /**
  * PacketCommitmentData returns the SignBytes data for packet commitment

@@ -6,7 +6,7 @@ export interface Record {
     /** name represents a name of Record */
     name: string;
     /** pub_key represents a public key in any format */
-    pubKey?: Any;
+    pubKey: Any;
     /** local stores the public information about a locally stored key */
     local?: Record_Local;
     /** ledger stores the public information about a Ledger key */
@@ -18,17 +18,11 @@ export interface Record {
 }
 /** Record is used for representing a key in the keyring. */
 export interface RecordSDKType {
-    /** name represents a name of Record */
     name: string;
-    /** pub_key represents a public key in any format */
-    pub_key?: AnySDKType;
-    /** local stores the public information about a locally stored key */
+    pub_key: AnySDKType;
     local?: Record_LocalSDKType;
-    /** ledger stores the public information about a Ledger key */
     ledger?: Record_LedgerSDKType;
-    /** Multi does not store any information. */
     multi?: Record_MultiSDKType;
-    /** Offline does not store any information. */
     offline?: Record_OfflineSDKType;
 }
 /**
@@ -36,7 +30,7 @@ export interface RecordSDKType {
  * Local item
  */
 export interface Record_Local {
-    privKey?: Any;
+    privKey: Any;
     privKeyType: string;
 }
 /**
@@ -44,16 +38,16 @@ export interface Record_Local {
  * Local item
  */
 export interface Record_LocalSDKType {
-    priv_key?: AnySDKType;
+    priv_key: AnySDKType;
     priv_key_type: string;
 }
 /** Ledger item */
 export interface Record_Ledger {
-    path?: BIP44Params;
+    path: BIP44Params;
 }
 /** Ledger item */
 export interface Record_LedgerSDKType {
-    path?: BIP44ParamsSDKType;
+    path: BIP44ParamsSDKType;
 }
 /** Multi item */
 export interface Record_Multi {

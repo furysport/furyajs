@@ -10,23 +10,29 @@ import * as _119 from "./types/types";
 import * as _120 from "./types/validator";
 import * as _121 from "./version/types";
 export namespace tendermint {
-  export const abci = { ..._111
+  export const abci = {
+    ..._111
   };
-  export const crypto = { ..._112,
+  export const crypto = {
+    ..._112,
     ..._113
   };
   export namespace libs {
-    export const bits = { ..._114
+    export const bits = {
+      ..._114
     };
   }
-  export const p2p = { ..._115
+  export const p2p = {
+    ..._115
   };
-  export const types = { ..._116,
+  export const types = {
+    ..._116,
     ..._117,
     ..._118,
     ..._119,
     ..._120
   };
-  export const version = { ..._121
+  export const version = {
+    ..._121
   };
 }

@@ -1,9 +1,9 @@
 {
-  "name": "teritori",
+  "name": "furya",
   "version": "0.2.0",
-  "description": "teritori",
+  "description": "furya",
   "author": "Dan Lynch <pyramation@gmail.com>",
-  "homepage": "https://github.com/cosmology-tech/teritori#readme",
+  "homepage": "https://github.com/cosmology-tech/furya#readme",
   "license": "SEE LICENSE IN LICENSE",
   "main": "main/index.js",
   "module": "module/index.js",
@@ -38,11 +38,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/cosmology-tech/teritori"
+    "url": "https://github.com/cosmology-tech/furya"
   },
   "keywords": [],
   "bugs": {
-    "url": "https://github.com/cosmology-tech/teritori/issues"
+    "url": "https://github.com/cosmology-tech/furya/issues"
   },
   "devDependencies": {
     "@babel/cli": "7.19.3",

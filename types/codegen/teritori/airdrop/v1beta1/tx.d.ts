@@ -3,12 +3,12 @@ import * as _m0 from "protobufjs/minimal";
 /** MsgSetAllocation defines an sdk.Msg type that set airdrop allocation */
 export interface MsgSetAllocation {
     sender: string;
-    allocation?: AirdropAllocation;
+    allocation: AirdropAllocation;
 }
 /** MsgSetAllocation defines an sdk.Msg type that set airdrop allocation */
 export interface MsgSetAllocationSDKType {
     sender: string;
-    allocation?: AirdropAllocationSDKType;
+    allocation: AirdropAllocationSDKType;
 }
 /** MsgSetAllocationResponse defines the Msg/SetAllocation response type. */
 export interface MsgSetAllocationResponse {
@@ -45,9 +45,7 @@ export interface MsgSignData {
 }
 /** MsgSignData defines an arbitrary, general-purpose, off-chain message */
 export interface MsgSignDataSDKType {
-    /** Signer is the sdk.AccAddress of the message signer */
     signer: string;
-    /** data represents the raw bytes of the content that is signed (text, json, etc) */
     data: Uint8Array;
 }
 export interface MsgTransferModuleOwnership {

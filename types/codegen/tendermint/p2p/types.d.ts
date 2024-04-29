@@ -1,6 +1,6 @@
 import { Timestamp, TimestampSDKType } from "../../google/protobuf/timestamp";
-import * as _m0 from "protobufjs/minimal";
 import { Long } from "../../helpers";
+import * as _m0 from "protobufjs/minimal";
 export interface ProtocolVersion {
     p2p: Long;
     block: Long;
@@ -12,24 +12,24 @@ export interface ProtocolVersionSDKType {
     app: Long;
 }
 export interface NodeInfo {
-    protocolVersion?: ProtocolVersion;
+    protocolVersion: ProtocolVersion;
     nodeId: string;
     listenAddr: string;
     network: string;
     version: string;
     channels: Uint8Array;
     moniker: string;
-    other?: NodeInfoOther;
+    other: NodeInfoOther;
 }
 export interface NodeInfoSDKType {
-    protocol_version?: ProtocolVersionSDKType;
+    protocol_version: ProtocolVersionSDKType;
     node_id: string;
     listen_addr: string;
     network: string;
     version: string;
     channels: Uint8Array;
     moniker: string;
-    other?: NodeInfoOtherSDKType;
+    other: NodeInfoOtherSDKType;
 }
 export interface NodeInfoOther {
     txIndex: string;
@@ -42,23 +42,23 @@ export interface NodeInfoOtherSDKType {
 export interface PeerInfo {
     id: string;
     addressInfo: PeerAddressInfo[];
-    lastConnected?: Timestamp;
+    lastConnected: Timestamp;
 }
 export interface PeerInfoSDKType {
     id: string;
     address_info: PeerAddressInfoSDKType[];
-    last_connected?: TimestampSDKType;
+    last_connected: TimestampSDKType;
 }
 export interface PeerAddressInfo {
     address: string;
-    lastDialSuccess?: Timestamp;
-    lastDialFailure?: Timestamp;
+    lastDialSuccess: Timestamp;
+    lastDialFailure: Timestamp;
     dialFailures: number;
 }
 export interface PeerAddressInfoSDKType {
     address: string;
-    last_dial_success?: TimestampSDKType;
-    last_dial_failure?: TimestampSDKType;
+    last_dial_success: TimestampSDKType;
+    last_dial_failure: TimestampSDKType;
     dial_failures: number;
 }
 export declare const ProtocolVersion: {

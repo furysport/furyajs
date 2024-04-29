@@ -5,28 +5,28 @@ import { Timestamp, TimestampSDKType } from "../../../../google/protobuf/timesta
 import { MerkleRoot, MerkleRootSDKType } from "../../../core/commitment/v1/commitment";
 import { SignedHeader, SignedHeaderSDKType } from "../../../../tendermint/types/types";
 import { ValidatorSet, ValidatorSetSDKType } from "../../../../tendermint/types/validator";
-import * as _m0 from "protobufjs/minimal";
 import { Long } from "../../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /**
  * ClientState from Tendermint tracks the current validator set, latest height,
  * and a possible frozen height.
  */
 export interface ClientState {
     chainId: string;
-    trustLevel?: Fraction;
+    trustLevel: Fraction;
     /**
      * duration of the period since the LastestTimestamp during which the
      * submitted headers are valid for upgrade
      */
-    trustingPeriod?: Duration;
+    trustingPeriod: Duration;
     /** duration of the staking unbonding period */
-    unbondingPeriod?: Duration;
+    unbondingPeriod: Duration;
     /** defines how much new (untrusted) header's Time can drift into the future. */
-    maxClockDrift?: Duration;
+    maxClockDrift: Duration;
     /** Block height when the client was frozen due to a misbehaviour */
-    frozenHeight?: Height;
+    frozenHeight: Height;
     /** Latest height the client was updated to */
-    latestHeight?: Height;
+    latestHeight: Height;
     /** Proof specifications used in verifying counterparty state */
     proofSpecs: ProofSpec[];
     /**
@@ -56,41 +56,15 @@ export interface ClientState {
  */
 export interface ClientStateSDKType {
     chain_id: string;
-    trust_level?: FractionSDKType;
-    /**
-     * duration of the period since the LastestTimestamp during which the
-     * submitted headers are valid for upgrade
-     */
-    trusting_period?: DurationSDKType;
-    /** duration of the staking unbonding period */
-    unbonding_period?: DurationSDKType;
-    /** defines how much new (untrusted) header's Time can drift into the future. */
-    max_clock_drift?: DurationSDKType;
-    /** Block height when the client was frozen due to a misbehaviour */
-    frozen_height?: HeightSDKType;
-    /** Latest height the client was updated to */
-    latest_height?: HeightSDKType;
-    /** Proof specifications used in verifying counterparty state */
+    trust_level: FractionSDKType;
+    trusting_period: DurationSDKType;
+    unbonding_period: DurationSDKType;
+    max_clock_drift: DurationSDKType;
+    frozen_height: HeightSDKType;
+    latest_height: HeightSDKType;
     proof_specs: ProofSpecSDKType[];
-    /**
-     * Path at which next upgraded client will be committed.
-     * Each element corresponds to the key for a single CommitmentProof in the
-     * chained proof. NOTE: ClientState must stored under
-     * `{upgradePath}/{upgradeHeight}/clientState` ConsensusState must be stored
-     * under `{upgradepath}/{upgradeHeight}/consensusState` For SDK chains using
-     * the default upgrade module, upgrade_path should be []string{"upgrade",
-     * "upgradedIBCState"}`
-     */
     upgrade_path: string[];
-    /**
-     * This flag, when set to true, will allow governance to recover a client
-     * which has expired
-     */
     allow_update_after_expiry: boolean;
-    /**
-     * This flag, when set to true, will allow governance to unfreeze a client
-     * whose chain has experienced a misbehaviour event
-     */
     allow_update_after_misbehaviour: boolean;
 }
 /** ConsensusState defines the consensus state from Tendermint. */
@@ -99,20 +73,15 @@ export interface ConsensusState {
      * timestamp that corresponds to the block height in which the ConsensusState
      * was stored.
      */
-    timestamp?: Timestamp;
+    timestamp: Timestamp;
     /** commitment root (i.e app hash) */
-    root?: MerkleRoot;
+    root: MerkleRoot;
     nextValidatorsHash: Uint8Array;
 }
 /** ConsensusState defines the consensus state from Tendermint. */
 export interface ConsensusStateSDKType {
-    /**
-     * timestamp that corresponds to the block height in which the ConsensusState
-     * was stored.
-     */
-    timestamp?: TimestampSDKType;
-    /** commitment root (i.e app hash) */
-    root?: MerkleRootSDKType;
+    timestamp: TimestampSDKType;
+    root: MerkleRootSDKType;
     next_validators_hash: Uint8Array;
 }
 /**
@@ -121,8 +90,8 @@ export interface ConsensusStateSDKType {
  */
 export interface Misbehaviour {
     clientId: string;
-    header1?: Header;
-    header2?: Header;
+    header1: Header;
+    header2: Header;
 }
 /**
  * Misbehaviour is a wrapper over two conflicting Headers
@@ -130,8 +99,8 @@ export interface Misbehaviour {
  */
 export interface MisbehaviourSDKType {
     client_id: string;
-    header_1?: HeaderSDKType;
-    header_2?: HeaderSDKType;
+    header_1: HeaderSDKType;
+    header_2: HeaderSDKType;
 }
 /**
  * Header defines the Tendermint client consensus Header.
@@ -148,10 +117,10 @@ export interface MisbehaviourSDKType {
  * trusted validator set at the TrustedHeight.
  */
 export interface Header {
-    signedHeader?: SignedHeader;
-    validatorSet?: ValidatorSet;
-    trustedHeight?: Height;
-    trustedValidators?: ValidatorSet;
+    signedHeader: SignedHeader;
+    validatorSet: ValidatorSet;
+    trustedHeight: Height;
+    trustedValidators: ValidatorSet;
 }
 /**
  * Header defines the Tendermint client consensus Header.
@@ -168,10 +137,10 @@ export interface Header {
  * trusted validator set at the TrustedHeight.
  */
 export interface HeaderSDKType {
-    signed_header?: SignedHeaderSDKType;
-    validator_set?: ValidatorSetSDKType;
-    trusted_height?: HeightSDKType;
-    trusted_validators?: ValidatorSetSDKType;
+    signed_header: SignedHeaderSDKType;
+    validator_set: ValidatorSetSDKType;
+    trusted_height: HeightSDKType;
+    trusted_validators: ValidatorSetSDKType;
 }
 /**
  * Fraction defines the protobuf message type for tmmath.Fraction that only

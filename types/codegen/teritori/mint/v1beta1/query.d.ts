@@ -9,12 +9,11 @@ export interface QueryParamsRequestSDKType {
 /** QueryParamsResponse is the response type for the Query/Params RPC method. */
 export interface QueryParamsResponse {
     /** params defines the parameters of the module. */
-    params?: Params;
+    params: Params;
 }
 /** QueryParamsResponse is the response type for the Query/Params RPC method. */
 export interface QueryParamsResponseSDKType {
-    /** params defines the parameters of the module. */
-    params?: ParamsSDKType;
+    params: ParamsSDKType;
 }
 /**
  * QueryBlockProvisionsRequest is the request type for the
@@ -41,7 +40,6 @@ export interface QueryBlockProvisionsResponse {
  * Query/BlockProvisions RPC method.
  */
 export interface QueryBlockProvisionsResponseSDKType {
-    /** block_provisions is the current minting per epoch provisions value. */
     block_provisions: Uint8Array;
 }
 export declare const QueryParamsRequest: {

@@ -35,7 +35,7 @@ export declare const createRPCMsgClient: ({ rpc }: {
             v1beta1: import("../cosmos/vesting/v1beta1/tx.rpc.msg").MsgClientImpl;
         };
     };
-    teritori: {
+    furya: {
         airdrop: {
             v1beta1: import("./airdrop/v1beta1/tx.rpc.msg").MsgClientImpl;
         };

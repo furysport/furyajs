@@ -6,10 +6,12 @@ import * as _84 from "./protobuf/duration";
 import * as _85 from "./protobuf/empty";
 import * as _86 from "./protobuf/timestamp";
 export namespace google {
-  export const api = { ..._80,
+  export const api = {
+    ..._80,
     ..._81
   };
-  export const protobuf = { ..._82,
+  export const protobuf = {
+    ..._82,
     ..._83,
     ..._84,
     ..._85,

@@ -1,7 +1,8 @@
-import { OfflineSigner, GeneratedType, Registry } from "@cosmjs/proto-signing";
+import { GeneratedType, Registry, OfflineSigner } from "@cosmjs/proto-signing";
 import { AminoTypes, SigningStargateClient } from "@cosmjs/stargate";
-export declare const teritoriAminoConverters: {
-    "/teritori.airdrop.v1beta1.MsgClaimAllocation": {
+import { HttpEndpoint } from "@cosmjs/tendermint-rpc";
+export declare const furyaAminoConverters: {
+    "/furya.airdrop.v1beta1.MsgClaimAllocation": {
         aminoType: string;
         toAmino: ({ address, pubKey, rewardAddress, signature }: import("./airdrop/v1beta1/tx").MsgClaimAllocation) => {
             address: string;
@@ -16,7 +17,7 @@ export declare const teritoriAminoConverters: {
             signature: string;
         }) => import("./airdrop/v1beta1/tx").MsgClaimAllocation;
     };
-    "/teritori.airdrop.v1beta1.MsgSetAllocation": {
+    "/furya.airdrop.v1beta1.MsgSetAllocation": {
         aminoType: string;
         toAmino: ({ sender, allocation }: import("./airdrop/v1beta1/tx").MsgSetAllocation) => {
             sender: string;
@@ -37,7 +38,7 @@ export declare const teritoriAminoConverters: {
             };
         }) => import("./airdrop/v1beta1/tx").MsgSetAllocation;
     };
-    "/teritori.airdrop.v1beta1.MsgTransferModuleOwnership": {
+    "/furya.airdrop.v1beta1.MsgTransferModuleOwnership": {
         aminoType: string;
         toAmino: ({ sender, newOwner }: import("./airdrop/v1beta1/tx").MsgTransferModuleOwnership) => {
             sender: string;
@@ -48,7 +49,7 @@ export declare const teritoriAminoConverters: {
             new_owner: string;
         }) => import("./airdrop/v1beta1/tx").MsgTransferModuleOwnership;
     };
-    "/teritori.airdrop.v1beta1.MsgDepositTokens": {
+    "/furya.airdrop.v1beta1.MsgDepositTokens": {
         aminoType: string;
         toAmino: ({ sender, amount }: import("./airdrop/v1beta1/tx").MsgDepositTokens) => {
             sender: string;
@@ -60,15 +61,15 @@ export declare const teritoriAminoConverters: {
         }) => import("./airdrop/v1beta1/tx").MsgDepositTokens;
     };
 };
-export declare const teritoriProtoRegistry: ReadonlyArray<[string, GeneratedType]>;
-export declare const getSigningTeritoriClientOptions: ({ defaultTypes }?: {
+export declare const furyaProtoRegistry: ReadonlyArray<[string, GeneratedType]>;
+export declare const getSigningFuryaClientOptions: ({ defaultTypes }?: {
     defaultTypes?: ReadonlyArray<[string, GeneratedType]>;
 }) => {
     registry: Registry;
     aminoTypes: AminoTypes;
 };
-export declare const getSigningTeritoriClient: ({ rpcEndpoint, signer, defaultTypes }: {
-    rpcEndpoint: string;
+export declare const getSigningFuryaClient: ({ rpcEndpoint, signer, defaultTypes }: {
+    rpcEndpoint: string | HttpEndpoint;
     signer: OfflineSigner;
     defaultTypes?: ReadonlyArray<[string, GeneratedType]>;
 }) => Promise<SigningStargateClient>;

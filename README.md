@@ -1,4 +1,4 @@
-# teritori
+# furya
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/545047/196277993-8d2edf5f-0f69-4679-97f4-8ad243448df7.svg" width="80"><br />
@@ -9,17 +9,17 @@
 ## install
 
 ```sh
-npm install teritori
+npm install furya
 ```
 ## Table of contents
 
-- [Teritori](#teritori)
+- [Furya](#furya)
   - [Install](#install)
   - [Table of contents](#table-of-contents)
 - [Usage](#usage)
     - [RPC Clients](#rpc-clients)
     - [Composing Messages](#composing-messages)
-        - Teritori
+        - Furya
             - [Airdrop](#airdrop-messages)
         - Cosmos and IBC
             - [IBC](#ibc-messages)
@@ -37,17 +37,17 @@ npm install teritori
 ### RPC Clients
 
 ```js
-import { teritori } from 'teritori';
+import { furya } from 'furya';
 
-const { createRPCQueryClient } = teritori.ClientFactory; 
+const { createRPCQueryClient } = furya.ClientFactory; 
 const client = await createRPCQueryClient({ rpcEndpoint: RPC_ENDPOINT });
 
 // now you can query the cosmos modules
 const balance = await client.cosmos.bank.v1beta1
     .allBalances({ address: 'tori1addresshere' });
 
-// you can also query the teritori modules
-const drops = await client.teritori.airdrop.v1beta1.allocation({
+// you can also query the furya modules
+const drops = await client.furya.airdrop.v1beta1.allocation({
     address: userAddress
 });
 
@@ -65,19 +65,19 @@ const {
 #### Airdrop Messages
 
 ```js
-import { teritori } from 'teritori';
+import { furya } from 'furya';
 const {
     claimAllocation,
     depositTokens,
     setAllocation,
     transferModuleOwnership
-} = teritori.airdrop.v1beta1.MessageComposer.withTypeUrl;
+} = furya.airdrop.v1beta1.MessageComposer.withTypeUrl;
 ```
 
 #### IBC Messages
 
 ```js
-import { ibc } from 'teritori';
+import { ibc } from 'furya';
 
 const {
     transfer
@@ -87,7 +87,7 @@ const {
 #### Cosmos Messages
 
 ```js
-import { cosmos } from 'teritori';
+import { cosmos } from 'furya';
 
 const {
     fundCommunityPool,
@@ -125,12 +125,12 @@ Here are the docs on [creating signers](https://github.com/cosmology-tech/cosmos
 
 ### Initializing the Stargate Client
 
-Use `getSigningteritoriClient` to get your `SigningStargateClient`, with the proto/amino messages full-loaded. No need to manually add amino types, just require and initialize the client:
+Use `getSigningfuryaClient` to get your `SigningStargateClient`, with the proto/amino messages full-loaded. No need to manually add amino types, just require and initialize the client:
 
 ```js
-import { getSigningteritoriClient } from 'teritori';
+import { getSigningfuryaClient } from 'furya';
 
-const stargateClient = await getSigningteritoriClient({
+const stargateClient = await getSigningfuryaClient({
   rpcEndpoint,
   signer // OfflineSigner
 });
@@ -162,7 +162,7 @@ import { chains } from 'chain-registry';
 
 const mnemonic =
   'unfold client turtle either pilot stock floor glow toward bullet car science';
-  const chain = chains.find(({ chain_name }) => chain_name === 'teritori');
+  const chain = chains.find(({ chain_name }) => chain_name === 'furya');
   const signer = await getOfflineSigner({
     mnemonic,
     chain
@@ -212,23 +212,23 @@ import {
     cosmosProtoRegistry,
     ibcProtoRegistry,
     ibcAminoConverters,
-    teritoriAminoConverters,
-    teritoriProtoRegistry
-} from 'teritori';
+    furyaAminoConverters,
+    furyaProtoRegistry
+} from 'furya';
 
 const signer: OfflineSigner = /* create your signer (see above)  */
-const rpcEndpint = 'https://rpc.cosmos.directory/teritori'; // or another URL
+const rpcEndpint = 'https://rpc.cosmos.directory/furya'; // or another URL
 
 const protoRegistry: ReadonlyArray<[string, GeneratedType]> = [
     ...cosmosProtoRegistry,
     ...ibcProtoRegistry,
-    ...teritoriProtoRegistry
+    ...furyaProtoRegistry
 ];
 
 const aminoConverters = {
     ...cosmosAminoConverters,
     ...ibcAminoConverters,
-    ...teritoriAminoConverters
+    ...furyaAminoConverters
 };
 
 const registry = new Registry(protoRegistry);
@@ -251,7 +251,7 @@ yarn build
 
 ### Codegen
 
-Contract schemas live in `./contracts`, and protos in `./proto`. Look inside of `scripts/codegen.js` and configure the settings for bundling your SDK and contracts into `teritori`:
+Contract schemas live in `./contracts`, and protos in `./proto`. Look inside of `scripts/codegen.js` and configure the settings for bundling your SDK and contracts into `furya`:
 
 ```
 yarn codegen

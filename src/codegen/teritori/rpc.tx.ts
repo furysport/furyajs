@@ -37,7 +37,7 @@ export const createRPCMsgClient = async ({
       v1beta1: new (await import("../cosmos/vesting/v1beta1/tx.rpc.msg")).MsgClientImpl(rpc)
     }
   },
-  teritori: {
+  furya: {
     airdrop: {
       v1beta1: new (await import("./airdrop/v1beta1/tx.rpc.msg")).MsgClientImpl(rpc)
     }

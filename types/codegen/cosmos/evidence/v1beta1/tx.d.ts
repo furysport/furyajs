@@ -6,7 +6,7 @@ import * as _m0 from "protobufjs/minimal";
  */
 export interface MsgSubmitEvidence {
     submitter: string;
-    evidence?: Any;
+    evidence: Any;
 }
 /**
  * MsgSubmitEvidence represents a message that supports submitting arbitrary
@@ -14,7 +14,7 @@ export interface MsgSubmitEvidence {
  */
 export interface MsgSubmitEvidenceSDKType {
     submitter: string;
-    evidence?: AnySDKType;
+    evidence: AnySDKType;
 }
 /** MsgSubmitEvidenceResponse defines the Msg/SubmitEvidence response type. */
 export interface MsgSubmitEvidenceResponse {
@@ -23,7 +23,6 @@ export interface MsgSubmitEvidenceResponse {
 }
 /** MsgSubmitEvidenceResponse defines the Msg/SubmitEvidence response type. */
 export interface MsgSubmitEvidenceResponseSDKType {
-    /** hash defines the hash of the evidence. */
     hash: Uint8Array;
 }
 export declare const MsgSubmitEvidence: {

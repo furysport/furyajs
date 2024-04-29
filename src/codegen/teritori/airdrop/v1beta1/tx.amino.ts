@@ -1,8 +1,8 @@
 //@ts-nocheck
 import { AminoMsg } from "@cosmjs/amino";
 import { MsgClaimAllocation, MsgSetAllocation, MsgTransferModuleOwnership, MsgDepositTokens } from "./tx";
-export interface AminoMsgClaimAllocation extends AminoMsg {
-  type: "/teritori.airdrop.v1beta1.MsgClaimAllocation";
+export interface MsgClaimAllocationAminoType extends AminoMsg {
+  type: "/furya.airdrop.v1beta1.MsgClaimAllocation";
   value: {
     address: string;
     pub_key: string;
@@ -10,8 +10,8 @@ export interface AminoMsgClaimAllocation extends AminoMsg {
     signature: string;
   };
 }
-export interface AminoMsgSetAllocation extends AminoMsg {
-  type: "/teritori.airdrop.v1beta1.MsgSetAllocation";
+export interface MsgSetAllocationAminoType extends AminoMsg {
+  type: "/furya.airdrop.v1beta1.MsgSetAllocation";
   value: {
     sender: string;
     allocation: {
@@ -22,29 +22,29 @@ export interface AminoMsgSetAllocation extends AminoMsg {
     };
   };
 }
-export interface AminoMsgTransferModuleOwnership extends AminoMsg {
-  type: "/teritori.airdrop.v1beta1.MsgTransferModuleOwnership";
+export interface MsgTransferModuleOwnershipAminoType extends AminoMsg {
+  type: "/furya.airdrop.v1beta1.MsgTransferModuleOwnership";
   value: {
     sender: string;
     new_owner: string;
   };
 }
-export interface AminoMsgDepositTokens extends AminoMsg {
-  type: "/teritori.airdrop.v1beta1.MsgDepositTokens";
+export interface MsgDepositTokensAminoType extends AminoMsg {
+  type: "/furya.airdrop.v1beta1.MsgDepositTokens";
   value: {
     sender: string;
     amount: string[];
   };
 }
 export const AminoConverter = {
-  "/teritori.airdrop.v1beta1.MsgClaimAllocation": {
-    aminoType: "/teritori.airdrop.v1beta1.MsgClaimAllocation",
+  "/furya.airdrop.v1beta1.MsgClaimAllocation": {
+    aminoType: "/furya.airdrop.v1beta1.MsgClaimAllocation",
     toAmino: ({
       address,
       pubKey,
       rewardAddress,
       signature
-    }: MsgClaimAllocation): AminoMsgClaimAllocation["value"] => {
+    }: MsgClaimAllocation): MsgClaimAllocationAminoType["value"] => {
       return {
         address,
         pub_key: pubKey,
@@ -57,7 +57,7 @@ export const AminoConverter = {
       pub_key,
       reward_address,
       signature
-    }: AminoMsgClaimAllocation["value"]): MsgClaimAllocation => {
+    }: MsgClaimAllocationAminoType["value"]): MsgClaimAllocation => {
       return {
         address,
         pubKey: pub_key,
@@ -66,12 +66,12 @@ export const AminoConverter = {
       };
     }
   },
-  "/teritori.airdrop.v1beta1.MsgSetAllocation": {
-    aminoType: "/teritori.airdrop.v1beta1.MsgSetAllocation",
+  "/furya.airdrop.v1beta1.MsgSetAllocation": {
+    aminoType: "/furya.airdrop.v1beta1.MsgSetAllocation",
     toAmino: ({
       sender,
       allocation
-    }: MsgSetAllocation): AminoMsgSetAllocation["value"] => {
+    }: MsgSetAllocation): MsgSetAllocationAminoType["value"] => {
       return {
         sender,
         allocation: {
@@ -85,7 +85,7 @@ export const AminoConverter = {
     fromAmino: ({
       sender,
       allocation
-    }: AminoMsgSetAllocation["value"]): MsgSetAllocation => {
+    }: MsgSetAllocationAminoType["value"]): MsgSetAllocation => {
       return {
         sender,
         allocation: {
@@ -97,12 +97,12 @@ export const AminoConverter = {
       };
     }
   },
-  "/teritori.airdrop.v1beta1.MsgTransferModuleOwnership": {
-    aminoType: "/teritori.airdrop.v1beta1.MsgTransferModuleOwnership",
+  "/furya.airdrop.v1beta1.MsgTransferModuleOwnership": {
+    aminoType: "/furya.airdrop.v1beta1.MsgTransferModuleOwnership",
     toAmino: ({
       sender,
       newOwner
-    }: MsgTransferModuleOwnership): AminoMsgTransferModuleOwnership["value"] => {
+    }: MsgTransferModuleOwnership): MsgTransferModuleOwnershipAminoType["value"] => {
       return {
         sender,
         new_owner: newOwner
@@ -111,19 +111,19 @@ export const AminoConverter = {
     fromAmino: ({
       sender,
       new_owner
-    }: AminoMsgTransferModuleOwnership["value"]): MsgTransferModuleOwnership => {
+    }: MsgTransferModuleOwnershipAminoType["value"]): MsgTransferModuleOwnership => {
       return {
         sender,
         newOwner: new_owner
       };
     }
   },
-  "/teritori.airdrop.v1beta1.MsgDepositTokens": {
-    aminoType: "/teritori.airdrop.v1beta1.MsgDepositTokens",
+  "/furya.airdrop.v1beta1.MsgDepositTokens": {
+    aminoType: "/furya.airdrop.v1beta1.MsgDepositTokens",
     toAmino: ({
       sender,
       amount
-    }: MsgDepositTokens): AminoMsgDepositTokens["value"] => {
+    }: MsgDepositTokens): MsgDepositTokensAminoType["value"] => {
       return {
         sender,
         amount
@@ -132,7 +132,7 @@ export const AminoConverter = {
     fromAmino: ({
       sender,
       amount
-    }: AminoMsgDepositTokens["value"]): MsgDepositTokens => {
+    }: MsgDepositTokensAminoType["value"]): MsgDepositTokens => {
       return {
         sender,
         amount

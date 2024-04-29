@@ -3,18 +3,14 @@ import { Header, HeaderSDKType } from "../types/types";
 import { ProofOps, ProofOpsSDKType } from "../crypto/proof";
 import { EvidenceParams, EvidenceParamsSDKType, ValidatorParams, ValidatorParamsSDKType, VersionParams, VersionParamsSDKType } from "../types/params";
 import { PublicKey, PublicKeySDKType } from "../crypto/keys";
-import * as _m0 from "protobufjs/minimal";
 import { Long } from "../../helpers";
+import * as _m0 from "protobufjs/minimal";
 export declare enum CheckTxType {
     NEW = 0,
     RECHECK = 1,
     UNRECOGNIZED = -1
 }
-export declare enum CheckTxTypeSDKType {
-    NEW = 0,
-    RECHECK = 1,
-    UNRECOGNIZED = -1
-}
+export declare const CheckTxTypeSDKType: typeof CheckTxType;
 export declare function checkTxTypeFromJSON(object: any): CheckTxType;
 export declare function checkTxTypeToJSON(object: CheckTxType): string;
 export declare enum ResponseOfferSnapshot_Result {
@@ -32,21 +28,7 @@ export declare enum ResponseOfferSnapshot_Result {
     REJECT_SENDER = 5,
     UNRECOGNIZED = -1
 }
-export declare enum ResponseOfferSnapshot_ResultSDKType {
-    /** UNKNOWN - Unknown result, abort all snapshot restoration */
-    UNKNOWN = 0,
-    /** ACCEPT - Snapshot accepted, apply chunks */
-    ACCEPT = 1,
-    /** ABORT - Abort all snapshot restoration */
-    ABORT = 2,
-    /** REJECT - Reject this specific snapshot, try others */
-    REJECT = 3,
-    /** REJECT_FORMAT - Reject all snapshots of this format, try others */
-    REJECT_FORMAT = 4,
-    /** REJECT_SENDER - Reject all snapshots from the sender(s), try others */
-    REJECT_SENDER = 5,
-    UNRECOGNIZED = -1
-}
+export declare const ResponseOfferSnapshot_ResultSDKType: typeof ResponseOfferSnapshot_Result;
 export declare function responseOfferSnapshot_ResultFromJSON(object: any): ResponseOfferSnapshot_Result;
 export declare function responseOfferSnapshot_ResultToJSON(object: ResponseOfferSnapshot_Result): string;
 export declare enum ResponseApplySnapshotChunk_Result {
@@ -64,21 +46,7 @@ export declare enum ResponseApplySnapshotChunk_Result {
     REJECT_SNAPSHOT = 5,
     UNRECOGNIZED = -1
 }
-export declare enum ResponseApplySnapshotChunk_ResultSDKType {
-    /** UNKNOWN - Unknown result, abort all snapshot restoration */
-    UNKNOWN = 0,
-    /** ACCEPT - Chunk successfully accepted */
-    ACCEPT = 1,
-    /** ABORT - Abort all snapshot restoration */
-    ABORT = 2,
-    /** RETRY - Retry chunk (combine with refetch and reject) */
-    RETRY = 3,
-    /** RETRY_SNAPSHOT - Retry snapshot (combine with refetch and reject) */
-    RETRY_SNAPSHOT = 4,
-    /** REJECT_SNAPSHOT - Reject this snapshot, try others */
-    REJECT_SNAPSHOT = 5,
-    UNRECOGNIZED = -1
-}
+export declare const ResponseApplySnapshotChunk_ResultSDKType: typeof ResponseApplySnapshotChunk_Result;
 export declare function responseApplySnapshotChunk_ResultFromJSON(object: any): ResponseApplySnapshotChunk_Result;
 export declare function responseApplySnapshotChunk_ResultToJSON(object: ResponseApplySnapshotChunk_Result): string;
 export declare enum EvidenceType {
@@ -87,12 +55,7 @@ export declare enum EvidenceType {
     LIGHT_CLIENT_ATTACK = 2,
     UNRECOGNIZED = -1
 }
-export declare enum EvidenceTypeSDKType {
-    UNKNOWN = 0,
-    DUPLICATE_VOTE = 1,
-    LIGHT_CLIENT_ATTACK = 2,
-    UNRECOGNIZED = -1
-}
+export declare const EvidenceTypeSDKType: typeof EvidenceType;
 export declare function evidenceTypeFromJSON(object: any): EvidenceType;
 export declare function evidenceTypeToJSON(object: EvidenceType): string;
 export interface Request {
@@ -160,17 +123,17 @@ export interface RequestSetOptionSDKType {
     value: string;
 }
 export interface RequestInitChain {
-    time?: Timestamp;
+    time: Timestamp;
     chainId: string;
-    consensusParams?: ConsensusParams;
+    consensusParams: ConsensusParams;
     validators: ValidatorUpdate[];
     appStateBytes: Uint8Array;
     initialHeight: Long;
 }
 export interface RequestInitChainSDKType {
-    time?: TimestampSDKType;
+    time: TimestampSDKType;
     chain_id: string;
-    consensus_params?: ConsensusParamsSDKType;
+    consensus_params: ConsensusParamsSDKType;
     validators: ValidatorUpdateSDKType[];
     app_state_bytes: Uint8Array;
     initial_height: Long;
@@ -189,14 +152,14 @@ export interface RequestQuerySDKType {
 }
 export interface RequestBeginBlock {
     hash: Uint8Array;
-    header?: Header;
-    lastCommitInfo?: LastCommitInfo;
+    header: Header;
+    lastCommitInfo: LastCommitInfo;
     byzantineValidators: Evidence[];
 }
 export interface RequestBeginBlockSDKType {
     hash: Uint8Array;
-    header?: HeaderSDKType;
-    last_commit_info?: LastCommitInfoSDKType;
+    header: HeaderSDKType;
+    last_commit_info: LastCommitInfoSDKType;
     byzantine_validators: EvidenceSDKType[];
 }
 export interface RequestCheckTx {
@@ -205,7 +168,7 @@ export interface RequestCheckTx {
 }
 export interface RequestCheckTxSDKType {
     tx: Uint8Array;
-    type: CheckTxTypeSDKType;
+    type: CheckTxType;
 }
 export interface RequestDeliverTx {
     tx: Uint8Array;
@@ -232,15 +195,13 @@ export interface RequestListSnapshotsSDKType {
 /** offers a snapshot to the application */
 export interface RequestOfferSnapshot {
     /** snapshot offered by peers */
-    snapshot?: Snapshot;
+    snapshot: Snapshot;
     /** light client-verified app hash for snapshot height */
     appHash: Uint8Array;
 }
 /** offers a snapshot to the application */
 export interface RequestOfferSnapshotSDKType {
-    /** snapshot offered by peers */
-    snapshot?: SnapshotSDKType;
-    /** light client-verified app hash for snapshot height */
+    snapshot: SnapshotSDKType;
     app_hash: Uint8Array;
 }
 /** loads a snapshot chunk */
@@ -345,17 +306,16 @@ export interface ResponseSetOption {
 /** nondeterministic */
 export interface ResponseSetOptionSDKType {
     code: number;
-    /** bytes data = 2; */
     log: string;
     info: string;
 }
 export interface ResponseInitChain {
-    consensusParams?: ConsensusParams;
+    consensusParams: ConsensusParams;
     validators: ValidatorUpdate[];
     appHash: Uint8Array;
 }
 export interface ResponseInitChainSDKType {
-    consensus_params?: ConsensusParamsSDKType;
+    consensus_params: ConsensusParamsSDKType;
     validators: ValidatorUpdateSDKType[];
     app_hash: Uint8Array;
 }
@@ -368,20 +328,18 @@ export interface ResponseQuery {
     index: Long;
     key: Uint8Array;
     value: Uint8Array;
-    proofOps?: ProofOps;
+    proofOps: ProofOps;
     height: Long;
     codespace: string;
 }
 export interface ResponseQuerySDKType {
     code: number;
-    /** bytes data = 2; // use "value" instead. */
     log: string;
-    /** nondeterministic */
     info: string;
     index: Long;
     key: Uint8Array;
     value: Uint8Array;
-    proof_ops?: ProofOpsSDKType;
+    proof_ops: ProofOpsSDKType;
     height: Long;
     codespace: string;
 }
@@ -406,9 +364,7 @@ export interface ResponseCheckTx {
 export interface ResponseCheckTxSDKType {
     code: number;
     data: Uint8Array;
-    /** nondeterministic */
     log: string;
-    /** nondeterministic */
     info: string;
     gas_wanted: Long;
     gas_used: Long;
@@ -430,9 +386,7 @@ export interface ResponseDeliverTx {
 export interface ResponseDeliverTxSDKType {
     code: number;
     data: Uint8Array;
-    /** nondeterministic */
     log: string;
-    /** nondeterministic */
     info: string;
     gas_wanted: Long;
     gas_used: Long;
@@ -441,12 +395,12 @@ export interface ResponseDeliverTxSDKType {
 }
 export interface ResponseEndBlock {
     validatorUpdates: ValidatorUpdate[];
-    consensusParamUpdates?: ConsensusParams;
+    consensusParamUpdates: ConsensusParams;
     events: Event[];
 }
 export interface ResponseEndBlockSDKType {
     validator_updates: ValidatorUpdateSDKType[];
-    consensus_param_updates?: ConsensusParamsSDKType;
+    consensus_param_updates: ConsensusParamsSDKType;
     events: EventSDKType[];
 }
 export interface ResponseCommit {
@@ -455,7 +409,6 @@ export interface ResponseCommit {
     retainHeight: Long;
 }
 export interface ResponseCommitSDKType {
-    /** reserve 1 */
     data: Uint8Array;
     retain_height: Long;
 }
@@ -469,7 +422,7 @@ export interface ResponseOfferSnapshot {
     result: ResponseOfferSnapshot_Result;
 }
 export interface ResponseOfferSnapshotSDKType {
-    result: ResponseOfferSnapshot_ResultSDKType;
+    result: ResponseOfferSnapshot_Result;
 }
 export interface ResponseLoadSnapshotChunk {
     chunk: Uint8Array;
@@ -485,10 +438,8 @@ export interface ResponseApplySnapshotChunk {
     rejectSenders: string[];
 }
 export interface ResponseApplySnapshotChunkSDKType {
-    result: ResponseApplySnapshotChunk_ResultSDKType;
-    /** Chunks to refetch and reapply */
+    result: ResponseApplySnapshotChunk_Result;
     refetch_chunks: number[];
-    /** Chunk senders to reject and ban */
     reject_senders: string[];
 }
 /**
@@ -496,20 +447,20 @@ export interface ResponseApplySnapshotChunkSDKType {
  * that can be adjusted by the abci app
  */
 export interface ConsensusParams {
-    block?: BlockParams;
-    evidence?: EvidenceParams;
-    validator?: ValidatorParams;
-    version?: VersionParams;
+    block: BlockParams;
+    evidence: EvidenceParams;
+    validator: ValidatorParams;
+    version: VersionParams;
 }
 /**
  * ConsensusParams contains all consensus-relevant parameters
  * that can be adjusted by the abci app
  */
 export interface ConsensusParamsSDKType {
-    block?: BlockParamsSDKType;
-    evidence?: EvidenceParamsSDKType;
-    validator?: ValidatorParamsSDKType;
-    version?: VersionParamsSDKType;
+    block: BlockParamsSDKType;
+    evidence: EvidenceParamsSDKType;
+    validator: ValidatorParamsSDKType;
+    version: VersionParamsSDKType;
 }
 /** BlockParams contains limits on the block size. */
 export interface BlockParams {
@@ -520,9 +471,7 @@ export interface BlockParams {
 }
 /** BlockParams contains limits on the block size. */
 export interface BlockParamsSDKType {
-    /** Note: must be greater than 0 */
     max_bytes: Long;
-    /** Note: must be greater or equal to -1 */
     max_gas: Long;
 }
 export interface LastCommitInfo {
@@ -562,7 +511,6 @@ export interface EventAttribute {
 export interface EventAttributeSDKType {
     key: Uint8Array;
     value: Uint8Array;
-    /** nondeterministic */
     index: boolean;
 }
 /**
@@ -574,7 +522,7 @@ export interface TxResult {
     height: Long;
     index: number;
     tx: Uint8Array;
-    result?: ResponseDeliverTx;
+    result: ResponseDeliverTx;
 }
 /**
  * TxResult contains results of executing the transaction.
@@ -585,7 +533,7 @@ export interface TxResultSDKType {
     height: Long;
     index: number;
     tx: Uint8Array;
-    result?: ResponseDeliverTxSDKType;
+    result: ResponseDeliverTxSDKType;
 }
 /** Validator */
 export interface Validator {
@@ -599,42 +547,37 @@ export interface Validator {
 }
 /** Validator */
 export interface ValidatorSDKType {
-    /**
-     * The first 20 bytes of SHA256(public key)
-     * PubKey pub_key = 2 [(gogoproto.nullable)=false];
-     */
     address: Uint8Array;
-    /** The voting power */
     power: Long;
 }
 /** ValidatorUpdate */
 export interface ValidatorUpdate {
-    pubKey?: PublicKey;
+    pubKey: PublicKey;
     power: Long;
 }
 /** ValidatorUpdate */
 export interface ValidatorUpdateSDKType {
-    pub_key?: PublicKeySDKType;
+    pub_key: PublicKeySDKType;
     power: Long;
 }
 /** VoteInfo */
 export interface VoteInfo {
-    validator?: Validator;
+    validator: Validator;
     signedLastBlock: boolean;
 }
 /** VoteInfo */
 export interface VoteInfoSDKType {
-    validator?: ValidatorSDKType;
+    validator: ValidatorSDKType;
     signed_last_block: boolean;
 }
 export interface Evidence {
     type: EvidenceType;
     /** The offending validator */
-    validator?: Validator;
+    validator: Validator;
     /** The height when the offense occurred */
     height: Long;
     /** The corresponding time where the offense occurred */
-    time?: Timestamp;
+    time: Timestamp;
     /**
      * Total voting power of the validator set in case the ABCI application does
      * not store historical validators.
@@ -643,18 +586,10 @@ export interface Evidence {
     totalVotingPower: Long;
 }
 export interface EvidenceSDKType {
-    type: EvidenceTypeSDKType;
-    /** The offending validator */
-    validator?: ValidatorSDKType;
-    /** The height when the offense occurred */
+    type: EvidenceType;
+    validator: ValidatorSDKType;
     height: Long;
-    /** The corresponding time where the offense occurred */
-    time?: TimestampSDKType;
-    /**
-     * Total voting power of the validator set in case the ABCI application does
-     * not store historical validators.
-     * https://github.com/tendermint/tendermint/issues/4581
-     */
+    time: TimestampSDKType;
     total_voting_power: Long;
 }
 export interface Snapshot {
@@ -670,15 +605,10 @@ export interface Snapshot {
     metadata: Uint8Array;
 }
 export interface SnapshotSDKType {
-    /** The height at which the snapshot was taken */
     height: Long;
-    /** The application-specific snapshot format */
     format: number;
-    /** Number of chunks in the snapshot */
     chunks: number;
-    /** Arbitrary snapshot hash, equal only if identical */
     hash: Uint8Array;
-    /** Arbitrary application metadata */
     metadata: Uint8Array;
 }
 export declare const Request: {
