@@ -1,4 +1,4 @@
-# furya
+# Furya
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/furysport/fury-swap-ui/mainv2/public/logo.svg" width="200"><br />
